@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Bar, BarChart, Cell, Tooltip, XAxis, YAxis } from 'recharts';
 
 const SpecialChart = () => {
   const [phones, setPhones] = useState([]);
@@ -20,7 +21,14 @@ const SpecialChart = () => {
         console.log(phoneData);
       });
   });
-  return <div></div>;
+  return (
+    <BarChart width={400} height={400} data={phones}>
+      <Bar dataKey="value" fill="#8884d8"></Bar>
+      <Tooltip></Tooltip>
+      <XAxis dataKey="name"></XAxis>
+      <YAxis></YAxis>
+    </BarChart>
+  );
 };
 
 export default SpecialChart;
